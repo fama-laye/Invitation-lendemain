@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation Lendemain de Mariage</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,600&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f1ea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            max-width: 450px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #e8e2d5;
+            overflow: hidden;
+        }
+
+        /* En-tête pour la photo */
+        .card-header {
+            width: 100%;
+            height: 310px; /* Augmenté pour donner de l'espace au magnifique texte */
+            background-color: #dfd5c3;
+            background-image: url('astou1.png');
+            background-size: cover;
+            background-position: top center; 
+            border-bottom: 3px solid #b39d82;
+            position: relative;
+            display: flex;
+            align-items: flex-end; 
+            justify-content: center;
+        }
+
+        /* Dégradé sombre subtil pour faire ressortir l'écriture dorée/blanche */
+        .card-header::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 65%;
+            background: linear-gradient(to top, rgba(20, 18, 15, 0.8) 0%, rgba(20, 18, 15, 0.4) 50%, transparent 100%);
+            z-index: 1;
+        }
+
+        /* Conteneur du Nom Éléganment Travaillé */
+        .nom-couple-container {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .titre-monsieur-madame {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            color: #f4ede2;
+            line-height: 1;
+            margin-bottom: 4px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .nom-famille {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #d4af37; /* Couleur dorée chic */
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            padding-left: 6px; /* Compense l'espace de la dernière lettre */
+        }
+
+        /* Contenu sous la photo */
+        .card-content {
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        /* Bordure intérieure élégante autour du contenu */
+        .card-content::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid #dfd5c3;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .sur-titre {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #8c7b64;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .titre-principal {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .separateur {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .ligne {
+            height: 1px;
+            width: 50px;
+            background-color: #dfd5c3;
+        }
+
+        .losange {
+            width: 8px;
+            height: 8px;
+            background-color: #dfd5c3;
+            transform: rotate(45deg);
+            margin: 0 10px;
+        }
+
+        .texte {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #555555;
+            margin-bottom: 30px;
+            padding: 0 5px;
+        }
+
+        /* Style Chronogramme / Frise Chronologique */
+        .chronogramme {
+            position: relative;
+            max-width: 320px;
+            margin: 0 auto;
+            text-align: left;
+            padding-left: 35px;
+        }
+
+        /* Ligne verticale de la frise */
+        .chronogramme::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 10px;
+            bottom: 10px;
+            width: 1px;
+            background-color: #dfd5c3;
+        }
+
+        .chrono-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .chrono-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Point / Puce sur la frise */
+        .chrono-point {
+            position: absolute;
+            left: -35px;
+            top: 6px;
+            width: 15px;
+            height: 15px;
+            background-color: #ffffff;
+            border: 2px solid #8c7b64;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chrono-point::after {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background-color: #8c7b64;
+            border-radius: 50%;
+        }
+
+        .chrono-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #a1927d;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .chrono-valeur {
+            font-size: 1.05rem;
+            color: #333333;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .chrono-valeur-speciale {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #8c7b64;
+            font-weight: 600;
+        }
+
+        .chrono-details {
+            font-size: 0.9rem;
+            color: #666666;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Zone photo avec le nom stylisé de manière prestigieuse -->
+        <div class="card-header">
+            <div class="nom-couple-container">
+                <div class="titre-monsieur-madame">M. & Mme</div>
+                <div class="nom-famille">Gningue</div>
+            </div>
+        </div>
+        
+        <div class="card-content">
+            <div class="sur-titre">Lendemain de Mariage</div>
+            <h1 class="titre-principal">On prolonge la fête !</h1>
+            
+            <div class="separateur">
+                <div class="ligne"></div>
+                <div class="losange"></div>
+                <div class="ligne"></div>
+            </div>
+
+            <p class="texte">
+                Le plus dur est passé, place à la détente ! <br>
+                Je vous invite à me rejoindre pour partager un moment convivial et décontracté autour d'un bon repas pour débriefer de la veille.
+            </p>
+
+            <!-- Section Infos en Chronogramme -->
+            <div class="chronogramme">
+                <div class="chrono-item">
+                    <div class="chrono-point"></div>
+                    <div class="chrono-label">Date & Heure</div>
+                    <div class="chrono-valeur chrono-valeur-speciale">Dimanche 28 Juin, dès 13h</div>
+                </div>
+                
+                <div class="chrono-item">
+                    <div class="chrono-point"></div>
+                    <div class="chrono-label">Le Lieu</div>
+                    <div class="chrono-valeur">Au domicile familial</div>
+                    <div class="chrono-details">Grand Dakar, près de la grande mosquée</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
